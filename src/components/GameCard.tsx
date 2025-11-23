@@ -56,7 +56,7 @@ export const GameCard = ({ name, description, image, fileAndroid, fileIos }: Gam
                 <img
                     src={`/assets/${image}`}
                     alt={name[language]}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                     onError={(e) => {
                         e.currentTarget.src = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=450&fit=crop';
                     }}
