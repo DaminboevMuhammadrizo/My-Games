@@ -27,7 +27,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gradient-gaming">
@@ -54,7 +54,7 @@ const Index = () => {
       <footer className="border-t border-border/40 mt-20">
         <div className="container mx-auto px-4 py-6">
           <p className="text-center text-sm text-muted-foreground">
-            © 2024 Javohir Xasanov. Barcha huquqlar himoyalangan.
+            © 2025 Muhammadrizo Daminboev.
           </p>
         </div>
       </footer>

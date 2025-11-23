@@ -25,11 +25,10 @@ export const Header = () => {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-gaming-cyan to-gaming-purple flex items-center justify-center text-white font-bold text-lg glow-gaming">
-              G
+              M
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gradient-gaming">Javohir Xasanov</h1>
-              <p className="text-xs text-muted-foreground">{t('developer')}</p>
+              <h1 className="text-xl font-bold text-gradient-gaming">Muhammadrizo Daminboev</h1>
             </div>
           </div>
 
