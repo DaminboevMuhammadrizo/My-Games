@@ -20,15 +20,35 @@ export const GameCard = ({ name, description, image, fileAndroid, fileIos }: Gam
   const [open, setOpen] = useState(false);
 
   const handleDownload = (platform: 'android' | 'ios') => {
-    const file = platform === 'android' ? fileAndroid : fileIos;
+    if (platform === 'ios') {
+      // iOS uchun fayl yo'qligi haqida xabar
+      if (language === 'uz') {
+        toast.error('Hozircha iOS versiyasi mavjud emas');
+      } else if (language === 'ru') {
+        toast.error('Версия для iOS пока недоступна');
+      } else {
+        toast.error('iOS version is not available yet');
+      }
+      setOpen(false);
+      return;
+    }
+
+    // Android yuklab olish
+    const file = fileAndroid;
     const link = document.createElement('a');
     link.href = `/data/${file}`;
     link.download = file;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
-    toast.success(`${name[language]} yuklanmoqda...`);
+
+    if (language === 'uz') {
+      toast.success(`${name[language]} yuklanmoqda...`);
+    } else if (language === 'ru') {
+      toast.success(`Загрузка ${name[language]}...`);
+    } else {
+      toast.success(`Downloading ${name[language]}...`);
+    }
     setOpen(false);
   };
 
@@ -45,16 +65,16 @@ export const GameCard = ({ name, description, image, fileAndroid, fileIos }: Gam
         />
         <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
-      
+
       <CardHeader>
         <CardTitle className="text-gradient-gaming">{name[language]}</CardTitle>
         <CardDescription className="line-clamp-2">{description[language]}</CardDescription>
       </CardHeader>
-      
+
       <CardFooter>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
-            <Button 
+            <Button
               className="w-full gap-2 bg-gradient-to-r from-gaming-cyan to-gaming-purple hover:shadow-lg hover:shadow-gaming-cyan/50 transition-all duration-300"
             >
               <Download className="h-4 w-4" />
@@ -79,9 +99,17 @@ export const GameCard = ({ name, description, image, fileAndroid, fileIos }: Gam
               <Button
                 onClick={() => handleDownload('ios')}
                 className="gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300"
+                disabled={!fileIos} // Agar fileIos bo'sh bo'lsa, tugma disabled bo'ladi
               >
                 <Apple className="h-5 w-5" />
                 {t('ios')}
+                {!fileIos && (
+                  <span className="text-xs ml-1 opacity-75">
+                    {language === 'uz' ? '(Tez kunda)' :
+                     language === 'ru' ? '(Скоро)' :
+                     '(Coming Soon)'}
+                  </span>
+                )}
               </Button>
             </div>
           </DialogContent>

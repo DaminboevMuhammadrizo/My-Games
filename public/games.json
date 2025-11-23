@@ -3,50 +3,18 @@
     {
       "id": "1",
       "name": {
-        "uz": "Kosmik Sarguzasht",
-        "ru": "Космическое Приключение",
-        "en": "Space Adventure"
+        "uz": "Pixel Master",
+        "ru": "Пиксельный Мастер",
+        "en": "Pixel Master"
       },
       "description": {
-        "uz": "Koinotda sayohat qiling va yulduzlar orasida zarb oling! Eng qiziqarli kosmik o'yin.",
-        "ru": "Путешествуйте по космосу и сражайтесь среди звезд! Самая захватывающая космическая игра.",
-        "en": "Travel through space and battle among the stars! The most exciting space game."
+        "uz": "Pixel Master — qiziqarli logik mini o‘yin. Rangli naqshlarni takrorlab, darajalarni o‘tasiz, miya va diqqatni rivojlantirasiz. Musiqa, effektlar va yorqin pixel dizayn bilan zavqlaning. Har qanday yosh uchun ideal.",
+        "ru": "Пиксельный Мастер — увлекательная логическая мини-игра. Повторяйте цветовые узоры, проходите уровни и тренируйте внимание. Красочная пиксельная графика, музыка и эффекты создают удовольствие от игры. Подходит для всех возрастов.",
+        "en": "Pixel Master is a fun mini puzzle game. Repeat color patterns, complete levels, and train your focus. Enjoy colorful pixel art, music, and effects. Perfect for all ages."
       },
-      "image": "game1.jpg",
-      "fileAndroid": "space_adventure.apk",
-      "fileIos": "space_adventure.ipa"
-    },
-    {
-      "id": "2",
-      "name": {
-        "uz": "Puzzle Master",
-        "ru": "Мастер Головоломок",
-        "en": "Puzzle Master"
-      },
-      "description": {
-        "uz": "Aql-idrok o'yinlari va qiziqarli jumboqlar. Miyangizni mashq qiling!",
-        "ru": "Умственные игры и интересные головоломки. Тренируйте свой мозг!",
-        "en": "Brain games and interesting puzzles. Train your mind!"
-      },
-      "image": "game2.jpg",
-      "fileAndroid": "puzzle_master.apk",
-      "fileIos": "puzzle_master.ipa"
-    },
-    {
-      "id": "3",
-      "name": {
-        "uz": "Racing Pro",
-        "ru": "Гоночный Про",
-        "en": "Racing Pro"
-      },
-      "description": {
-        "uz": "Tezkor mashinalar va hayajonli poygalar. Chempion bo'ling!",
-        "ru": "Быстрые машины и захватывающие гонки. Станьте чемпионом!",
-        "en": "Fast cars and thrilling races. Become a champion!"
-      },
-      "image": "game3.jpg",
-      "fileAndroid": "racing_pro.apk",
-      "fileIos": "racing_pro.ipa"
+      "image": "pixel-master.png",
+      "fileAndroid": "pixel-master.apk",
+      "fileIos": "none"
     }
   ]
 }
