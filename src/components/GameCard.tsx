@@ -1,0 +1,92 @@
+import { Download, Smartphone, Apple } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { useLanguage, Language } from '@/contexts/LanguageContext';
+import { toast } from 'sonner';
+import { useState } from 'react';
+
+interface GameCardProps {
+  id: string;
+  name: Record<Language, string>;
+  description: Record<Language, string>;
+  image: string;
+  fileAndroid: string;
+  fileIos: string;
+}
+
+export const GameCard = ({ name, description, image, fileAndroid, fileIos }: GameCardProps) => {
+  const { language, t } = useLanguage();
+  const [open, setOpen] = useState(false);
+
+  const handleDownload = (platform: 'android' | 'ios') => {
+    const file = platform === 'android' ? fileAndroid : fileIos;
+    const link = document.createElement('a');
+    link.href = `/data/${file}`;
+    link.download = file;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    toast.success(`${name[language]} yuklanmoqda...`);
+    setOpen(false);
+  };
+
+  return (
+    <Card className="card-gaming overflow-hidden group">
+      <div className="relative aspect-video overflow-hidden">
+        <img
+          src={`/assets/${image}`}
+          alt={name[language]}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          onError={(e) => {
+            e.currentTarget.src = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=450&fit=crop';
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+      
+      <CardHeader>
+        <CardTitle className="text-gradient-gaming">{name[language]}</CardTitle>
+        <CardDescription className="line-clamp-2">{description[language]}</CardDescription>
+      </CardHeader>
+      
+      <CardFooter>
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogTrigger asChild>
+            <Button 
+              className="w-full gap-2 bg-gradient-to-r from-gaming-cyan to-gaming-purple hover:shadow-lg hover:shadow-gaming-cyan/50 transition-all duration-300"
+            >
+              <Download className="h-4 w-4" />
+              {t('download')}
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle>{t('choosePlatform')}</DialogTitle>
+              <DialogDescription>
+                {name[language]}
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid grid-cols-2 gap-4 py-4">
+              <Button
+                onClick={() => handleDownload('android')}
+                className="gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:shadow-lg hover:shadow-green-500/50 transition-all duration-300"
+              >
+                <Smartphone className="h-5 w-5" />
+                {t('android')}
+              </Button>
+              <Button
+                onClick={() => handleDownload('ios')}
+                className="gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300"
+              >
+                <Apple className="h-5 w-5" />
+                {t('ios')}
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+      </CardFooter>
+    </Card>
+  );
+};
