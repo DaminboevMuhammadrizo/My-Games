@@ -13,7 +13,7 @@
         "en": "Pixel Master is a fun mini puzzle game. Repeat color patterns, complete levels, and train your focus. Enjoy colorful pixel art, music, and effects. Perfect for all ages."
       },
       "image": "pixel-master.png",
-      "fileAndroid": "pixel-master.apk",
+      "fileAndroid": "pixel-master-optimized.apk",
       "fileIos": "none"
     }
   ]
