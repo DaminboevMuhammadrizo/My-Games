@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+/public/data/*.apk
+/public/data/*.aab
+*.apk
+*.aab
